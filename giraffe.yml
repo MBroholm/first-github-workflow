@@ -1,0 +1,45 @@
+# YAML Ain't Markup Language
+# .yml .yaml
+
+person:
+  name: &name "mike"
+  occupation: 'programmer'
+  age: !!float 23 # 23.0
+  gpa: !! str 3.5 # "3,5"
+  fav_num: 1e+10
+  male: true
+  birthday: 1994-02-06 14:33:22     # ISO 8601
+  flaws: null
+  hobbies: 
+    - hiking
+    - movies
+    - riding bike
+  movies: ["Dark Knight", "Good Will Hunting"]
+  friends:
+    - name: "Steph"
+      age: 22
+    - {name: "Adam", age: 22}
+    -
+      name: "joe"
+      age: 23
+  description: > # make into one line
+    Lorem ipsum dolor sit amet consectetur adipiscing elit. 
+    Quisque faucibus ex sapien vitae pellentesque sem placerat. 
+    In id cursus mi pretium tellus duis convallis. 
+    Tempus leo eu aenean sed diam urna tempor. 
+    Pulvinar vivamus fringilla lacus nec metus bibendum egestas. 
+    Iaculis massa nisl malesuada lacinia integer nunc posuere. 
+    Ut hendrerit semper vel class aptent taciti sociosqu. 
+    Ad litora torquent per conubia nostra inceptos himenaeos.
+  signature: | #preserves newlines, indentation etc.
+    Mike
+    Giraffe Academy
+    email - giraffeacademy@gmail.com
+  id: *name # value of anchor '&<name>' 
+
+  # anchor key,value-pair:
+  base: &base
+    var1: value1
+
+  foo:
+    <<: *base # var1:value1
